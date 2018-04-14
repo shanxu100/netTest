@@ -1,6 +1,6 @@
 package net;
 
-import net.socket.SocketServer;
+import net.netty.NettyServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,7 +16,7 @@ public class NetServerManager {
 
     private static Logger logger = LoggerFactory.getLogger(NetServerManager.class);
 
-    private ExecutorService acceptService = Executors.newSingleThreadExecutor();
+    private ExecutorService acceptService ;
 
     public static void main(String[] atgs) throws InterruptedException {
         NetServerManager manager = new NetServerManager();
@@ -27,10 +27,12 @@ public class NetServerManager {
     }
 
     public void init() {
+        acceptService = Executors.newSingleThreadExecutor();
         acceptService.execute(new Runnable() {
             @Override
             public void run() {
-                SocketServer.getInstance().start();
+//                SocketServer.getInstance().start();
+                NettyServer.start();
             }
         });
 
@@ -38,8 +40,10 @@ public class NetServerManager {
 
 
     public void stop() {
-        SocketServer.getInstance().stop();
-//        acceptService.shutdownNow();
+        NettyServer.stop();
+
+//        SocketServer.getInstance().stop();
+        acceptService.shutdownNow();
         logger.info("acceptService 线程已经关闭...");
 
     }
