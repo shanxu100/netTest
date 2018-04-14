@@ -17,6 +17,7 @@ import java.util.concurrent.Executors;
  * 服务器，传统的 阻塞IO
  */
 public class SocketServer {
+    //lalala
     private static final int PORT = 8888;
     private static final CopyOnWriteArraySet<ServiceForClient> All_SOCKET_SET = new CopyOnWriteArraySet<>();
     private static final int BUFFER_SIZE = 1024;
