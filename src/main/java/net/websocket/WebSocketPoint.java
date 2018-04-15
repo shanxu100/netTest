@@ -102,6 +102,20 @@ public class WebSocketPoint {
     }
 
 
+    /**
+     * 获取当前所有Web在线Client的数量
+     *
+     * @return
+     */
+    public static synchronized String getWSInfo() {
+        StringBuilder sb = new StringBuilder();
+        for (WebSocketPoint point : ALL_CLIENT_SET) {
+            sb.append(point.toString()).append("\n");
+        }
+        return sb.toString();
+    }
+
+
     @Override
     public String toString() {
         return "WSServer{" +

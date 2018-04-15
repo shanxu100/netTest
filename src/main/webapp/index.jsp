@@ -4,7 +4,8 @@
     String path = request.getSession().getServletContext().getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
     String websocketPath = "ws://" + request.getServerName() + ":" + request.getServerPort() + path + "/websocket";
-    out.println(websocketPath + "  " + basePath);
+    out.println("Websocket 地址：" + websocketPath+"\n\n");
+    out.println("查看连接信息："+basePath+"/log/getLogInfo");
 %>
 <!DOCTYPE html>
 <html>
