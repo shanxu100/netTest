@@ -8,7 +8,7 @@ public class TcpClient {
     public static void main(String[] args) {
 
         int data=-1;
-        data = ModbusUtil.readRegister(HOST, PORT, 8, 1);
+        data = ModbusUtil.readRegister(HOST, PORT, 8, 2);
         System.out.println(data);
 
     }

@@ -153,7 +153,7 @@ public class ModbusUtil {
             //都多个数据的结果
             res.getRegisters();
 
-            System.out.println(res.getRegisterValue(0)+"=============="+res.getRegisterValue(1));
+//            System.out.println(res.getRegisterValue(0)+"=============="+res.getRegisterValue(1));
             con.close();
         } catch (Exception e) {
             e.printStackTrace();
